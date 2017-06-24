@@ -1,1 +1,2 @@
 - Incorporate Ctrl + q for quit instead of just q.
+- Get the ship image showing
