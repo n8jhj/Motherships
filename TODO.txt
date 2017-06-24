@@ -1,0 +1,3 @@
+- Incorporate Ctrl + q for quit instead of just q.
+- Create a slow/smooth stop function.
+- Accelerate on hold, not just press. (Have begun setting up key press functions to do this.)

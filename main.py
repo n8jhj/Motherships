@@ -1,4 +1,4 @@
-#C://Python27/python.exe
+#C:\\Python27\python.exe
 
 """
 MOTHERSHIPS
@@ -12,10 +12,12 @@ A game in which players vie for their place on a galactic battlefield.
 
 import pygame
 from pygame.locals import *
+import os
 import game
+from game_constants import SIZE
 
 # set up pygame
-SIZE = (700, 400)
+#os.environ['SDL_VIDEO_CENTERED'] = '1' # center pygame window #temporary
 DISPSURF = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('Motherships')
 pygame.init()
@@ -44,7 +46,10 @@ def controller_tick():
         if event.type == KEYDOWN:
             if event.key == K_q:
                 return False
-            m_game.key_press(event.key)
+            m_game.key_action(event.key, True)
+        if event.type == KEYUP:
+            m_game.key_action(event.key, False)
+    m_game.update()
     return True
 
 
