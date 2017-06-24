@@ -24,6 +24,9 @@ pygame.init()
 FPS = 30
 fps_clock = pygame.time.Clock()
 
+# set up game
+m_game = game.Game(DISPSURF)
+
 
 def main():
     going = True
@@ -41,12 +44,12 @@ def controller_tick():
         if event.type == KEYDOWN:
             if event.key == K_q:
                 return False
-            game.key_press(event.key)
+            m_game.key_press(event.key)
     return True
 
 
 def view_tick():
-    pass
+    m_game.draw()
 
 
 if __name__ == '__main__':
