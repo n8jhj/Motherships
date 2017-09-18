@@ -17,7 +17,7 @@ import game
 from game_constants import SIZE
 
 # set up pygame
-#os.environ['SDL_VIDEO_CENTERED'] = '1' # center pygame window #temporary
+os.environ['SDL_VIDEO_CENTERED'] = '1' # center pygame window
 DISPSURF = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('Motherships')
 pygame.init()
