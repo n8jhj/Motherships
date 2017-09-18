@@ -2,6 +2,7 @@
 
 from pygame import image
 from game_utils import p2c, rot_center
+import math
 
 
 class Ship(object):
@@ -28,9 +29,16 @@ class Ship(object):
         self.x_vel += x_dir * self.mvmt
         self.y_vel += y_dir * self.mvmt
 
-    # accelerate in angular direction
+    # angular accelerate
     def torque(self, a_dir):
         self.a_vel += a_dir * self.mvmt
+
+    # accelerate in direction ship is facing
+    def accelerate_forward(self):
+        angle = math.radians(self.a_pos + 90)
+        x_component = math.cos(angle)
+        y_component = math.sin(angle)
+        self.accelerate((x_component, y_component))
 
     # update position
     def update_pos(self):

@@ -10,10 +10,10 @@ class Game(object):
     def __init__(self, surf):
         self.surf = surf
         self.key_dict = {
-            K_UP:       self.key_up,
-            K_DOWN:     self.key_down,
-            K_LEFT:     self.key_left,
-            K_RIGHT:    self.key_right,
+            K_UP:       self.accel_ship_forward,
+            K_DOWN:     self.stop_ship,
+            K_LEFT:     self.torque_ship_left,
+            K_RIGHT:    self.torque_ship_right,
             K_a:        self.key_a,
             K_d:        self.key_d,
             K_s:        self.key_s
@@ -31,17 +31,17 @@ class Game(object):
     def key_action(self, key, press):
         self.key_dict[key](press)
 
-    def key_up(self, press):
-        self.ship.accelerate((0,1))
+    def accel_ship_forward(self, press):
+        self.ship.accelerate_forward()
 
-    def key_down(self, press):
-        self.ship.accelerate((0,-1))
+    def stop_ship(self, press):
+        self.ship.stop()
 
-    def key_left(self, press):
-        self.ship.accelerate((-1,0))
+    def torque_ship_left(self, press):
+        self.ship.torque(1)
 
-    def key_right(self, press):
-        self.ship.accelerate((1,0))
+    def torque_ship_right(self, press):
+        self.ship.torque(-1)
 
     def key_a(self, press):
         self.ship.torque(1)
