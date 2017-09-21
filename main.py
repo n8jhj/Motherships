@@ -27,7 +27,7 @@ FPS = 30
 fps_clock = pygame.time.Clock()
 
 # set up game
-m_game = game.Game(DISPSURF)
+main_game = game.Game(DISPSURF)
 
 
 def main():
@@ -46,15 +46,15 @@ def controller_tick():
         if event.type == KEYDOWN:
             if event.key == K_q:
                 return False
-            m_game.key_action(event.key, True)
+            main_game.key_action(event.key, True)
         if event.type == KEYUP:
-            m_game.key_action(event.key, False)
-    m_game.update()
+            main_game.key_action(event.key, False)
+    main_game.update()
     return True
 
 
 def view_tick():
-    m_game.draw()
+    main_game.draw()
 
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@
 
 from pygame import image
 from game_utils import p2c, rot_center
+from game_constants import SHIP_MOVEMENT
 import math
 
 
@@ -16,7 +17,7 @@ class Ship(object):
         self.y_vel = 0
         self.a_pos = 0 # angular position
         self.a_vel = 0 # angular velocity
-        self.mvmt = 0.2
+        self.mvmt = SHIP_MOVEMENT
 
     # draw self
     def draw(self):
@@ -34,11 +35,16 @@ class Ship(object):
         self.a_vel += a_dir * self.mvmt
 
     # accelerate in direction ship is facing
-    def accelerate_forward(self):
+    # forward direction is 1, backward is -1
+    def accelerate_forward(self, direction=1):
         angle = math.radians(self.a_pos + 90)
-        x_component = math.cos(angle)
-        y_component = math.sin(angle)
+        x_component = math.cos(angle) * direction
+        y_component = math.sin(angle) * direction
         self.accelerate((x_component, y_component))
+
+    # accelerate opposite direction ship is facing
+    def accelerate_backward(self):
+        self.accelerate_forward(-1)
 
     # update position
     def update_pos(self):
