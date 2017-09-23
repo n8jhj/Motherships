@@ -19,5 +19,6 @@ def pygame_window_size():
     screensize = screen_size()
     return (screensize[0]-2, screensize[1]-26)
 
-SHIP_MOVEMENT = 0.1
+BULLET_SPEED = 0.8
+SHIP_THRUST = 0.2
 SIZE = pygame_window_size()

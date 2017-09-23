@@ -5,7 +5,7 @@ from pygame import transform
 
 
 # Pygame to Cartesian coordinates
-def p2c((xp, yp)):
+def coordinates_pygame_to_cartesian((xp, yp)):
     return xp, SIZE[1]-yp
 
 # rotate an image about its center and keeping its size
