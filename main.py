@@ -7,9 +7,6 @@ A game in which players vie for their place on a galactic battlefield.
 
 """
 
-# __________________________79_CHARACTERS______________________________________
-
-
 import pygame
 from pygame.locals import *
 import os
@@ -44,13 +41,10 @@ def controller_tick():
         if event.type == QUIT:
             return False
         if event.type == KEYDOWN:
-            if event.key == K_q:
-                return False
             main_game.key_action(event.key, True)
         if event.type == KEYUP:
             main_game.key_action(event.key, False)
-    main_game.update()
-    return True
+    return main_game.update()
 
 
 def view_tick():

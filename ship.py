@@ -7,7 +7,7 @@ import math
 
 
 class Ship(sprite.Sprite):
-    def __init__(self, game, surf, (x,y), imgFile='ship_test.png'):
+    def __init__(self, game, surf, x, y, imgFile='ship_test.png'):
         super(Ship, self).__init__()
         self.game = game
         self.surf = surf
@@ -30,11 +30,11 @@ class Ship(sprite.Sprite):
     # draw self
     def draw(self, surf):
         surf.blit(rot_center(self.img, self.a_pos),
-                    p2c((self.x_pos - self.img_size[0]/2,
-                        self.y_pos + self.img_size[1]/2)))
+                    p2c(self.x_pos - self.img_size[0]/2,
+                        self.y_pos + self.img_size[1]/2))
 
     # accelerate
-    def accelerate(self, (x_dir,y_dir)):
+    def accelerate(self, x_dir, y_dir):
         self.x_vel += x_dir * self.mvmt
         self.y_vel += y_dir * self.mvmt
 
@@ -48,7 +48,7 @@ class Ship(sprite.Sprite):
         angle = math.radians(self.a_pos + 90)
         x_component = math.cos(angle) * direction
         y_component = math.sin(angle) * direction
-        self.accelerate((x_component, y_component))
+        self.accelerate(x_component, y_component)
 
     # accelerate opposite direction ship is facing
     def accelerate_backward(self):

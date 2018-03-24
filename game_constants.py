@@ -5,8 +5,6 @@ GAME_CONSTANTS.PY
 Contains all constants used in the game Motherships.
 """
 
-# __________________________79_CHARACTERS______________________________________
-
 import ctypes
 
 
@@ -20,5 +18,5 @@ def pygame_window_size():
     return (screensize[0]-2, screensize[1]-26)
 
 BULLET_SPEED = 0.8
-SHIP_THRUST = 0.2
+SHIP_THRUST = 0.1
 SIZE = pygame_window_size()
